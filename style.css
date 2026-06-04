@@ -763,12 +763,14 @@ width:30px;
 @media (max-width:1100px){
 
 .container{
-    width:100%;
-    height:auto;
+    width:100vw;
+    min-height:100vh;
 
     margin:0 auto;
 
-    transform:none;   /* remove scale */
+    overflow:hidden;
+
+    transform:none;
 }
 
 .chart-image-wrapper{
@@ -781,9 +783,8 @@ width:30px;
     display:block;
 }
 
-img{
-    max-width:100%;
-    height:auto;
+body{
+    overflow-x:hidden;
 }
 }
 
