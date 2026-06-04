@@ -699,37 +699,26 @@ body{
 
 @media (max-width:768px){
 
-.container{
-    width:100vw;
-    min-height:100vh;
+body{
+    overflow-x:auto;
+    overflow-y:auto;
 }
 
-.chart-wrapper{
-    width:100%;
-    top:100px;
-    left:0;
+.container{
+    width:1080px;
+    min-height:1080px;
+
+    transform:scale(0.36);
+    transform-origin:top left;
+}
+
+/* Do NOT resize these on mobile */
+.price,
+.top-logo,
+.platform-logo,
+.pillars-chart,
+.pillar-image{
     transform:none;
 }
 
-.chart-image-wrapper{
-    width:110%;      /* increase size */
-    margin-left:-15%; /* keep centered */
-}
-
-.pillars-chart{
-    width:100%;
-    height:auto;
-}
-
-.title h1{
-    font-size:40px;
-}
-
-.brand{
-    bottom:80px;
-}
-
-.brand-footer{
-    width:180px;
-}
 }
