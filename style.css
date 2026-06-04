@@ -699,20 +699,21 @@ body{
 
 @media (max-width:768px){
 
-.title h1{
-    font-size:28px;
-    line-height:1.1;
-    white-space:normal;
+.container{
+    width:100vw;
+    min-height:100vh;
 }
 
 .chart-wrapper{
     width:100%;
-    top:140px;
+    top:100px;
+    left:0;
+    transform:none;
 }
 
 .chart-image-wrapper{
-    width:92%;
-    margin:0 auto;
+    width:130%;      /* increase size */
+    margin-left:-15%; /* keep centered */
 }
 
 .pillars-chart{
@@ -720,35 +721,15 @@ body{
     height:auto;
 }
 
-.price{
-    font-size:16px;
+.title h1{
+    font-size:40px;
 }
 
-.download-box{
-    position:fixed;
-    right:15px;
-    bottom:90px;
-    z-index:9999;
-}
-
-.download-btn{
-    padding:10px 18px;
-    font-size:14px;
+.brand{
+    bottom:80px;
 }
 
 .brand-footer{
     width:180px;
-}
-}
-@media (max-width:768px){
-
-.container{
-    width:1080px;
-    transform:scale(0.35);
-    transform-origin:top left;
-}
-
-body{
-    overflow:auto;
 }
 }
