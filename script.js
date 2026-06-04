@@ -5,43 +5,43 @@ const platforms = [
 name:"PANDAMONEY",
 adjustment:1.08,
 color1:"#D8C46C",
-color2:"#A38C3D",
-logo:"./assets/logos/pandamoney.png"
+logo:"./assets/logos/pandamoney.png",
+pillar:"./asset/pillars/gold.png"
 },
 {
 name:"WISE",
 adjustment:0,
 color1:"#B6FF00",
-color2:"#7EB800",
-logo:"./assets/logos/wise.png"
+logo:"./assets/logos/wise.png",
+pillar:"./asset/pillars/green.png"
 },
 {
 name:"REVOLUT",
 adjustment:-0.45,
 color1:"#36A2FF",
-color2:"#1567D1",
-logo:"./assets/logos/revolut.png"
+logo:"./assets/logos/revolut.png",
+pillar:"./asset/pillars/blue.png"
 },
 {
 name:"REMITLY",
 adjustment:-0.80,
 color1:"#8E52FF",
-color2:"#5E2AE0",
-logo:"./assets/logos/remitly.png"
+logo:"./assets/logos/remitly.png",
+pillar:"./asset/pillars/purple.png"
 },
 {
 name:"XOOM",
 adjustment:-1.05,
 color1:"#25D8D8",
-color2:"#109B9B",
-logo:"./assets/logos/xoom.png"
+logo:"./assets/logos/xoom.png",
+pillar:"./asset/pillars/cyan.png"
 },
 {
 name:"MONEYGRAM",
 adjustment:-1.20,
 color1:"#FF5B2E",
-color2:"#D63810",
-logo:"./assets/logos/moneygram.png"
+logo:"./assets/logos/moneygram.png",
+pillar:"./asset/pillars/red.png"
 }
 ];
 
@@ -74,166 +74,127 @@ createChart(93.80);
 
 function createChart(baseRate){
 
-chart.innerHTML="";
+const rates = [
 
-const updatedPlatforms=platforms.map(item=>({
-...item,
-value:+(baseRate+item.adjustment).toFixed(2)
-}));
+(baseRate + 1.08).toFixed(2),
+(baseRate + 0).toFixed(2),
+(baseRate - 0.45).toFixed(2),
+(baseRate - 0.80).toFixed(2),
+(baseRate - 1.05).toFixed(2),
+(baseRate - 1.20).toFixed(2)
 
-updatedPlatforms.sort((a,b)=>b.value-a.value);
+];
 
-const maxValue=updatedPlatforms[0].value;
-const minValue=updatedPlatforms[updatedPlatforms.length-1].value;
+const priceElements = [
+".p1",
+".p2",
+".p3",
+".p4",
+".p5",
+".p6"
+];
 
-updatedPlatforms.forEach((item,index)=>{
+rates.forEach((rate,index)=>{
 
-const minHeight=180;
-const maxHeight=500;
+const el = document.querySelector(priceElements[index]);
 
-const normalized=
-(item.value-minValue)/(maxValue-minValue);
-
-const height=
-minHeight+(normalized*(maxHeight-minHeight));
-
-const wrapper=document.createElement("div");
-wrapper.classList.add("bar-wrapper");
-
-wrapper.innerHTML=`
-
-<div class="value">
-₹${item.value}
+if(el){
+el.innerHTML = `
+₹${rate}
 <div class="pointer"></div>
-</div>
-
-<div class="bar"
-style="
-height:${height}px;
-background:linear-gradient(
-to right,
-${item.color2},
-${item.color1}
-);
-box-shadow:
-0 0 20px ${item.color1},
-inset 0 0 20px rgba(255,255,255,.08);
-">
-
-<div class="top-face"></div>
-
-<img
-src="${item.logo}"
-class="platform-logo"
-alt="${item.name}"
->
-
-</div>
-
-<div class="base">
-
-<div class="rank"
-style="color:${item.color1};">
-${index+1}
-</div>
-
-<div class="name"
-style="color:${item.color1};">
-${item.name}
-</div>
-
-</div>
 `;
-
-chart.appendChild(wrapper);
+}
 
 });
 
 }
-
-fetchWiseRate();
-setInterval(fetchWiseRate,60000);
-
 function downloadAll(){
 
 const target = document.querySelector(".container");
 const btn = document.querySelector(".download-box");
 
-/* hide button */
 btn.style.visibility = "hidden";
 
 setTimeout(()=>{
 
 html2canvas(target,{
-scale:4,
-useCORS:true,
-backgroundColor:"#001712"
+    scale:4,
+    useCORS:true,
+    backgroundColor:null
 }).then(canvas=>{
 
-/* ---------- POST 1:1 ---------- */
-const post=document.createElement("canvas");
-post.width=1080;
-post.height=1080;
+    /* ---------- POST ---------- */
 
-const pctx=post.getContext("2d");
+    const post=document.createElement("canvas");
+    post.width=1080;
+    post.height=1080;
 
-/* fill bg */
-pctx.fillStyle="#001712";
-pctx.fillRect(0,0,1080,1080);
+    const pctx=post.getContext("2d");
 
-/* keep exact screen ratio */
-const postScale=Math.min(
-1080/canvas.width,
-1080/canvas.height
-);
+    pctx.drawImage(
+        canvas,
+        0,
+        0,
+        1080,
+        1080
+    );
 
-const pw=canvas.width*postScale;
-const ph=canvas.height*postScale;
+    const postLink=document.createElement("a");
+    postLink.download="pandamoney-post.png";
+    postLink.href=post.toDataURL("image/png");
+    postLink.click();
 
-const px=(1080-pw)/2;
-const py=(1080-ph)/2;
+    /* ---------- STORY ---------- */
 
-pctx.drawImage(canvas,px,py,pw,ph);
+    const story=document.createElement("canvas");
+    story.width=1080;
+    story.height=1920;
 
-const link=document.createElement("a");
-link.download="pandamoney-post.png";
-link.href=post.toDataURL("image/png");
-link.click();
+    const sctx=story.getContext("2d");
 
+    const bg=new Image();
 
-/* ---------- STORY 9:16 ---------- */
-const story=document.createElement("canvas");
-story.width=1080;
-story.height=1920;
+    bg.onload=()=>{
 
-const sctx=story.getContext("2d");
+        /* TOP BACKGROUND */
+        sctx.drawImage(
+            bg,
+            0,0,1080,960,
+            0,250,1080,960
+        );
 
-sctx.fillStyle="#001712";
-sctx.fillRect(0,0,1080,1920);
+        /* BOTTOM BACKGROUND = SAME AS TOP */
+        sctx.drawImage(
+            bg,
+            0,0,1080,960,
+            0,250,1080,960
+        );
 
-const storyScale=Math.min(
-1080/canvas.width,
-1920/canvas.height
-);
+        /* MAIN SCREEN CONTENT */
+        sctx.drawImage(
+            canvas,
+            0,
+            200,
+            1080,
+            1080
+        );
 
-const sw=canvas.width*storyScale;
-const sh=canvas.height*storyScale;
+        const storyLink=document.createElement("a");
+        storyLink.download="pandamoney-story.png";
+        storyLink.href=story.toDataURL("image/png");
+        storyLink.click();
 
-const sx=(1080-sw)/2;
-const sy=(1920-sh)/2;
+        btn.style.visibility="visible";
+    };
 
-sctx.drawImage(canvas,sx,sy,sw,sh);
-
-const link2=document.createElement("a");
-link2.download="pandamoney-story.png";
-link2.href=story.toDataURL("image/png");
-link2.click();
-
-/* show button again */
-btn.style.visibility="visible";
+    bg.src="./asset/background.png";
 
 });
 
 },300);
 
+
 }
+
+fetchWiseRate();
+setInterval(fetchWiseRate,60000);

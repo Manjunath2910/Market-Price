@@ -16,64 +16,19 @@ body{
     width:1080px;
     min-height:1080px;
 
-    margin:40px auto;
+    margin:0 auto;   /* centers horizontally */
 
     position:relative;
     overflow:hidden;
-
-    background:
-
-    radial-gradient(
-        circle at 20% 50%,
-        rgba(14,58,42,0.65),
-        transparent 35%
-    ),
-
-    radial-gradient(
-        circle at 80% 20%,
-        rgba(9,42,30,0.55),
-        transparent 35%
-    ),
-
-    linear-gradient(
-        rgb(229, 229, 229)
-        rgba(2,17,6,0.78)
-    ),
-
-    url("./asset/background.png");
-
-    background-size:
-        auto,
-        auto,
-        auto,
-        60% auto;
-
-    background-position:
-        center,
-        center,
-        center,
-        center 40px;
-
-    background-repeat:no-repeat;
-
-    background-color:#001712;
 }
-/* WORLD MAP */
-
-.container::after{
+.container::before{
     content:"";
     position:absolute;
     inset:0;
 
-    background:
-        linear-gradient(
-            rgba(255,215,120,0.04),
-            transparent 18%,
-            transparent 82%,
-            rgba(255,215,120,0.03)
-        );
+    background:url("./asset/background.png") center center/cover no-repeat;
 
-    pointer-events:none;
+    z-index:-1;
 }
 /* TITLE */
 
@@ -82,6 +37,7 @@ body{
 
     top:45px;
     width:100%;
+    left:1%;
 
     text-align:center;
 
@@ -89,13 +45,14 @@ body{
 }
 
 .title h1{
-    font-size:68px;
+    font-size:56px;
+    
 
     font-weight:900;
 
     color:white;
 
-    letter-spacing:-1px;
+    letter-spacing:-0px;
 
     white-space:nowrap;
 }
@@ -107,7 +64,7 @@ body{
 /* LINE BELOW TITLE */
 
 .title-line{
-    width:420px;
+    width:700px;
     height:2px;
 
     margin:14px auto 0;
@@ -172,23 +129,19 @@ body{
 }
 
 .chart{
-    position:absolute;
-
-    top:250px;
-
-    left:50%;
-    transform:translateX(-50%);
-
     width:900px;
     height:520px;
 
+    margin:120px auto 0;
+
     display:flex;
-    justify-content:center;
     align-items:flex-end;
+    justify-content:center;
 
-    gap:18px;
+    gap:26px;
 
-    z-index:4;
+    position:relative;
+    z-index:5;
 }
 
 .download-box{
@@ -242,24 +195,45 @@ body{
 
 .value{
     position:absolute;
-    top:-70px;
+    top:-15px;
 
-    font-size:22px;
+    min-width:90px;
+
+    padding:8px 14px;
+
+    background:rgba(0,0,0,0.65);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:12px;
+
+    text-align:center;
+
+    font-size:30px;
     font-weight:900;
-    color:white;
+    color:#ffffff;
+
+    backdrop-filter:blur(8px);
+
+    z-index:999;
 }
 
 /* POINTER */
 
 .pointer{
+    position:absolute;
+
+    left:50%;
+    bottom:-12px;
+
+    transform:translateX(-50%);
+
     width:0;
     height:0;
 
-    border-left:14px solid transparent;
-    border-right:14px solid transparent;
-    border-top:18px solid white;
-
-    margin:8px auto 0;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top:12px solid #ffffff;
 }
 
 /* BAR */
@@ -495,7 +469,7 @@ body{
 }
 
 .brand-footer{
-    width:170px;
+    width:200px;
 
     height:auto;
 
@@ -594,3 +568,196 @@ body{
     transform:scale(0.96);
 
 }
+
+@media (max-width:1100px){
+
+.container{
+width:100vw;
+height:100vh;
+min-height:100vh;
+
+margin:0;
+
+transform:scale(.95);
+transform-origin:top center;
+}
+
+.chart{
+width:92%;
+height:48vh;
+
+top:22%;
+}
+
+.title h1{
+font-size:5vw;
+}
+
+.brand-footer{
+width:160px;
+}
+
+.download-box{
+right:15px;
+bottom:15px;
+}
+
+.bar{
+width:11vw;
+}
+
+.base{
+width:11vw;
+height:70px;
+}
+
+.platform-logo{
+width:30px;
+}
+
+}
+
+.chart-image-wrapper{
+    position:relative;
+    width:920px;
+    right:4%;
+    margin:160px auto 0;
+}
+
+.pillars-chart{
+    width:100%;
+    display:block;
+}
+
+.price{
+    position:absolute;
+
+    min-width:90px;
+
+
+    padding:8px 12px;
+
+    
+
+    color:#fff;
+
+    font-size:25px;
+    font-weight:900;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    z-index:100;
+}
+
+.pointer{
+    width:0;
+    height: 1px;
+
+    margin:6px auto 0;
+
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-top:12px solid #ffffff;
+}
+
+/* Adjust these positions */
+.p1{ left:77px; top:-24px; color:#7DFF00; }
+.p2{ left:218px; top:39px; }
+.p3{ left:357px; top:69px; }
+.p4{ left:487px; top:95px; }
+.p5{ left:625px; top:120px; }
+.p6{ left:745px; top:154px; }
+
+.top-logo{
+    position:absolute;
+    width:60px;
+    height:auto;
+    object-fit:contain;
+    z-index:10;
+    filter:drop-shadow(0 0 12px rgba(255,255,255,.5));
+}
+
+/* PANDA MONEY */
+.top1{
+    left:11.5%;
+    top:16%;
+    width:70px;
+}
+
+/* WISE */
+.top2{
+    left:28%;
+    top:33%;
+    width:56px;
+}
+
+/* REVOLUT */
+.top3{
+    left:43%;
+    top:37%;
+    width:54px;
+}
+
+/* REMITLY */
+.top4{
+    left:56%;
+    top:40%;
+    width:80px;
+}
+
+/* XOOM */
+.top5{
+    left:71.5%;
+    top:43%;
+    width:55px;
+}
+
+/* MONEYGRAM */
+.top6{
+    left:85%;
+    top:44%;
+    width:58px;
+}
+
+.p1{
+    left:47px;
+    top:-33px;
+
+    min-width:170px;
+
+    padding:10px 20px;
+
+    border:01px solid #7DFF00;
+
+    background:rgba(0,20,0,0.25);
+
+    color:#7DFF00;
+
+    font-size:25px;
+    font-weight:900;
+
+    text-align:center;
+
+    box-shadow:0 0 20px rgba(125,255,0,.35);
+
+    position:absolute;
+}
+
+/* Bottom pointer only for first pillar */
+.p1::after{
+    border-left:18px solid transparent;
+    border-right:18px solid transparent;
+    border-top:16px solid #7DFF00;
+
+    bottom:-16px;
+}
+
+.p1::before{
+    font-size:28px;
+    top:-20px;
+    left:-12px;
+}
+
+
