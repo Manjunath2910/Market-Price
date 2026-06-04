@@ -697,54 +697,58 @@ body{
     left:-12px;
 }
 
-@media screen and (max-width:768px){
+@media (max-width:768px){
 
-body{
-    overflow-x:hidden;
-}
-
-.container{
-    width:100vw;
-    min-height:100vh;
+.title h1{
+    font-size:28px;
+    line-height:1.1;
+    white-space:normal;
 }
 
 .chart-wrapper{
     width:100%;
-    height:auto;
-
-    left:0;
-    top:120px;
-
-    transform:none;
+    top:140px;
 }
 
 .chart-image-wrapper{
-    width:100%;
+    width:92%;
     margin:0 auto;
 }
 
 .pillars-chart{
     width:100%;
     height:auto;
-    display:block;
 }
 
 .price{
-    transform:scale(.65);
-    transform-origin:center;
-}
-
-.brand-footer{
-    width:140px;
+    font-size:16px;
 }
 
 .download-box{
+    position:fixed;
     right:15px;
-    bottom:20px;
+    bottom:90px;
+    z-index:9999;
 }
 
+.download-btn{
+    padding:10px 18px;
+    font-size:14px;
 }
 
+.brand-footer{
+    width:180px;
+}
+}
+@media (max-width:768px){
 
+.container{
+    width:1080px;
+    transform:scale(0.35);
+    transform-origin:top left;
+}
 
-
+body{
+    overflow:auto;
+}
+}
