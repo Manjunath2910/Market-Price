@@ -482,26 +482,9 @@ body{
 
 /* RESPONSIVE */
 
-@media(max-width:1100px){
 
-    .chart{
-        width:95%;
-        gap:10px;
-    }
 
-    .bar{
-        width:75px;
-    }
 
-    .base{
-        width:88px;
-    }
-
-    .title h1{
-        font-size:52px;
-    }
-
-}
 .platform-logo{
     width:38px;
 
@@ -760,31 +743,28 @@ width:30px;
     left:-12px;
 }
 
-@media (max-width:1100px){
+@media (max-width:768px){
 
 .container{
     width:100vw;
     min-height:100vh;
 
-    margin:0 auto;
-
-    overflow:hidden;
-
     transform:none;
+    margin:0 auto;
 }
 
 .chart-image-wrapper{
     width:100%;
+    margin-top:120px;
 }
 
 .pillars-chart{
     width:100%;
     height:auto;
-    display:block;
 }
 
-body{
-    overflow-x:hidden;
+.title h1{
+    font-size:38px;
 }
 }
 
