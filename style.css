@@ -552,53 +552,7 @@ body{
 
 }
 
-@media (max-width:1100px){
 
-.container{
-width:100vw;
-height:100vh;
-min-height:100vh;
-
-margin:0;
-
-transform:scale(.95);
-transform-origin:top center;
-}
-
-.chart{
-width:92%;
-height:48vh;
-
-top:22%;
-}
-
-.title h1{
-font-size:5vw;
-}
-
-.brand-footer{
-width:160px;
-}
-
-.download-box{
-right:15px;
-bottom:15px;
-}
-
-.bar{
-width:11vw;
-}
-
-.base{
-width:11vw;
-height:70px;
-}
-
-.platform-logo{
-width:30px;
-}
-
-}
 
 .chart-image-wrapper{
     position:relative;
@@ -743,29 +697,54 @@ width:30px;
     left:-12px;
 }
 
-@media (max-width:768px){
+@media screen and (max-width:768px){
+
+body{
+    overflow-x:hidden;
+}
 
 .container{
     width:100vw;
     min-height:100vh;
+}
+
+.chart-wrapper{
+    width:100%;
+    height:auto;
+
+    left:0;
+    top:120px;
 
     transform:none;
-    margin:0 auto;
 }
 
 .chart-image-wrapper{
     width:100%;
-    margin-top:120px;
+    margin:0 auto;
 }
 
 .pillars-chart{
     width:100%;
     height:auto;
+    display:block;
 }
 
-.title h1{
-    font-size:38px;
+.price{
+    transform:scale(.65);
+    transform-origin:center;
 }
+
+.brand-footer{
+    width:140px;
 }
+
+.download-box{
+    right:15px;
+    bottom:20px;
+}
+
+}
+
+
 
 
