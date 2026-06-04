@@ -45,22 +45,17 @@ body{
 }
 
 .title h1{
-    font-size:56px;
-    
-
+    font-size:80px;
     font-weight:900;
-
     color:white;
-
-    letter-spacing:-0px;
-
-    white-space:nowrap;
+    letter-spacing:2px;
+    line-height:1.1;
+    text-align:center;
 }
 
 .title span{
     color:#7DFF00;
 }
-
 /* LINE BELOW TITLE */
 
 .title-line{
@@ -604,8 +599,8 @@ body{
 .p2{ left:218px; top:39px; }
 .p3{ left:357px; top:69px; }
 .p4{ left:487px; top:95px; }
-.p5{ left:625px; top:120px; }
-.p6{ left:745px; top:154px; }
+.p5{ left:625px; top:122px; }
+.p6{ left:745px; top:159px; }
 
 .top-logo{
     position:absolute;
@@ -620,40 +615,40 @@ body{
 .top1{
     left:11.5%;
     top:16%;
-    width:70px;
+    width:72px;
 }
 
 /* WISE */
 .top2{
-    left:28%;
+    left:27.5%;
     top:33%;
     width:56px;
 }
 
 /* REVOLUT */
 .top3{
-    left:43%;
+    left:42.5%;
     top:37%;
-    width:54px;
+    width:60px;
 }
 
 /* REMITLY */
 .top4{
-    left:56%;
+    left:55.5%;
     top:40%;
-    width:80px;
+    width:81px;
 }
 
 /* XOOM */
 .top5{
-    left:71.5%;
+    left:71%;
     top:43%;
     width:55px;
 }
 
 /* MONEYGRAM */
 .top6{
-    left:85%;
+    left:84.5%;
     top:44%;
     width:58px;
 }
