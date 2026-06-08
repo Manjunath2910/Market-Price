@@ -146,31 +146,45 @@ html2canvas(target,{
 
     /* ---------- STORY ---------- */
 
+/* ---------- STORY ---------- */
+
 const story = document.createElement("canvas");
 story.width = 1080;
 story.height = 1920;
 
 const sctx = story.getContext("2d");
 
-/* Full black background */
-sctx.fillStyle = "#000000";
-sctx.fillRect(0, 0, 1080, 1920);
+const bg = new Image();
 
-/* Main content in center */
-sctx.drawImage(
-    canvas,
-    0,
-    420,   // center position
-    1080,
-    1080
-);
+bg.onload = () => {
 
-const storyLink = document.createElement("a");
-storyLink.download = "pandamoney-story.png";
-storyLink.href = story.toDataURL("image/png");
-storyLink.click();
-        
-    bg.src="./asset/background.png";
+    /* Fill entire story with same background image */
+    sctx.drawImage(
+        bg,
+        0,
+        0,
+        1080,
+        1920
+    );
+
+    /* Put the screen content in center */
+    sctx.drawImage(
+        canvas,
+        0,
+        0,
+        1080,
+        1920
+    );
+
+    const storyLink = document.createElement("a");
+    storyLink.download = "pandamoney-story.png";
+    storyLink.href = story.toDataURL("image/png");
+    storyLink.click();
+
+    btn.style.visibility = "visible";
+};
+
+bg.src = "./asset/background.png";
 
 });
 

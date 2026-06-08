@@ -30,6 +30,7 @@ body{
 
     z-index:-1;
 }
+
 /* TITLE */
 
 .title{
@@ -37,7 +38,7 @@ body{
 
     top:45px;
     width:100%;
-    left:1%;
+    left:2.5%;
 
     text-align:center;
 
@@ -45,11 +46,11 @@ body{
 }
 
 .title h1{
-    font-size:80px;
+    font-size:83px;
     font-weight:900;
     color:white;
-    letter-spacing:2px;
-    line-height:1.1;
+    letter-spacing:3px;
+    line-height:1.2;
     text-align:center;
 }
 
@@ -456,7 +457,7 @@ body{
     position:absolute;
 
     bottom:38px;
-    left:50%;
+    left: 50%;
 
     transform:translateX(-50%);
 
@@ -464,7 +465,7 @@ body{
 }
 
 .brand-footer{
-    width:200px;
+    width:208px;
 
     height:auto;
 
@@ -574,7 +575,7 @@ body{
     color:#fff;
 
     font-size:25px;
-    font-weight:900;
+    font-weight:750;
 
     border-radius:12px;
 
@@ -584,8 +585,8 @@ body{
 }
 
 .pointer{
-    width:0;
-    height: 1px;
+    width:5;
+    height: 3px;
 
     margin:6px auto 0;
 
@@ -595,12 +596,12 @@ body{
 }
 
 /* Adjust these positions */
-.p1{ left:77px; top:-24px; color:#7DFF00; }
-.p2{ left:218px; top:39px; }
-.p3{ left:357px; top:69px; }
-.p4{ left:487px; top:95px; }
-.p5{ left:625px; top:122px; }
-.p6{ left:745px; top:159px; }
+.p1{ left:77px; top:-30px; color:#7DFF00; }
+.p2{ left:218px; top:41px; }
+.p3{ left:357px; top:76px; }
+.p4{ left:489px; top:102px; }
+.p5{ left:625px; top:133px; }
+.p6{ left:745px; top:169px; }
 
 .top-logo{
     position:absolute;
